@@ -1,55 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { GlobalStateProvider, TimerState, BaseAction } from "./GlobalState";
-const initialState = {
-  isRunning: false
-};
-const reducer = (state: TimerState, action: BaseAction) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-};
+import { reducer } from "./globalStateReducer";
+import { useTimeKeeper } from "./timeKeeper";
 
+import { TimerControls } from "./controls";
+import { useGlobalState } from "./GlobalState";
 function App() {
+  useTimeKeeper({
+    onTick: () => {},
+    interval: 1000
+  });
   return (
-    <GlobalStateProvider reducer={reducer} initialState={initialState}>
-      <TimeKeeper />
+    <GlobalStateProvider reducer={reducer}>
+      <Display />
+      <TimerControls />
     </GlobalStateProvider>
   );
 }
 
-const TimeKeeper = () => {
-  const [count, setCount] = useState(0);
-  const [run, setRun] = useState(false);
-  useEffect(() => {
-    window.setTimeout(() => {
-      if (run) {
-        console.log(`runnign with ${count}`);
-        setCount(count + 1);
-      }
-    }, 1000);
-  });
-
-  const startTimer = () => {
-    setRun(true);
-  };
-
-  const stopTimer = () => {
-    setRun(false);
-  };
-
-  const resetTimer = () => {
-    setCount(0);
-  };
-
+const Display = () => {
+  const { state } = useGlobalState();
   return (
-    <div>
-      <h1>Meeting $$$ Counter</h1>
-      <p>{count}</p>
-      <button onClick={() => stopTimer()}>Stop</button>
-      <button onClick={() => startTimer()}>Start</button>
-      <button onClick={() => resetTimer()}>Reset</button>
-    </div>
+    <h1>Running? : {state.isRunning ? "Teapots R US" : "short and stout"}</h1>
   );
 };
 

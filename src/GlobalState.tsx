@@ -4,11 +4,9 @@ const GlobalStateContext = createContext({});
 
 export const GlobalStateProvider = ({
   reducer,
-  initialState,
   children
 }: {
   reducer: React.Reducer<TimerState, BaseAction>;
-  initialState: TimerState;
   children: any;
 }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -27,8 +25,14 @@ export const useGlobalState = () =>
 
 export interface TimerState {
   isRunning: boolean;
+  count: number;
 }
 
 export interface BaseAction {
   type: string;
 }
+
+const initialState: TimerState = {
+  isRunning: false,
+  count: 0
+};

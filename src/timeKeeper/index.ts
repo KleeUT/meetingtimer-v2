@@ -1,2 +1,2 @@
-import { TimeKeeper } from "./TimeKeeper";
-export { TimeKeeper };
+import { useTimeKeeper } from "./useTimeKeeper";
+export { useTimeKeeper };
