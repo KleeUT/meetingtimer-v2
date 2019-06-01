@@ -1,2 +1,4 @@
 import { useTimeKeeper } from "./useTimeKeeper";
-export { useTimeKeeper };
+import * as timeActionTypes from "./actionTypes";
+import { useTimerActions } from "./timeActionCreator";
+export { useTimeKeeper, timeActionTypes, useTimerActions };

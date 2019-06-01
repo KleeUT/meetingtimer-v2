@@ -1,27 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { GlobalStateProvider, TimerState, BaseAction } from "./GlobalState";
 import { reducer } from "./globalStateReducer";
-import { useTimeKeeper } from "./timeKeeper";
-
+import { useTimeKeeper, useTimerActions } from "./timeKeeper";
+import { Headings } from "./components";
 import { TimerControls } from "./controls";
 import { useGlobalState } from "./GlobalState";
 function App() {
-  useTimeKeeper({
-    onTick: () => {},
-    interval: 1000
-  });
   return (
     <GlobalStateProvider reducer={reducer}>
+      <TimeKeeper />
       <Display />
       <TimerControls />
     </GlobalStateProvider>
   );
 }
-
+const TimeKeeper = () => {
+  const { tick } = useTimerActions();
+  useTimeKeeper({
+    onTick: tick,
+    interval: 1000
+  });
+  return null;
+};
 const Display = () => {
   const { state } = useGlobalState();
   return (
-    <h1>Running? : {state.isRunning ? "Teapots R US" : "short and stout"}</h1>
+    <section>
+      <Headings.Heading1>How much is your meeting costing?</Headings.Heading1>
+      <p>{state.count}</p>
+    </section>
   );
 };
 
