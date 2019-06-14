@@ -5,11 +5,14 @@ import { useTimeKeeper, useTimerActions } from "./timeKeeper";
 import { Headings } from "./components";
 import { TimerControls } from "./controls";
 import { useGlobalState } from "./GlobalState";
+import { ParticipantEntry, SalaryEntry } from "./dataEntry";
 function App() {
   return (
     <GlobalStateProvider reducer={reducer}>
       <TimeKeeper />
       <Display />
+      <ParticipantEntry />
+      <SalaryEntry />
       <TimerControls />
     </GlobalStateProvider>
   );
