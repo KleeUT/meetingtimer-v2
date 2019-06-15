@@ -1,9 +1,15 @@
 import React from "react";
 import { Number } from "../components";
-export const SalaryEntry = () => (
-  <Number
-    label="About how much do they get paid on average?"
-    value={16}
-    onChange={e => {}}
-  />
-);
+import { useActionCreator } from "./salaryEntryActionCreator";
+import { useGlobalState } from "../GlobalState";
+export const SalaryEntry = () => {
+  const actionCreator = useActionCreator();
+  const { state } = useGlobalState();
+  return (
+    <Number
+      label="About how much do they get paid on average?"
+      value={state.averageSalary}
+      onChange={e => actionCreator.updateSalary(e.target.value)}
+    />
+  );
+};

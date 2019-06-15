@@ -26,6 +26,8 @@ export const useGlobalState = () =>
 export interface TimerState {
   isRunning: boolean;
   count: number;
+  averageSalary: number;
+  participants: number;
 }
 
 export interface BaseAction {
@@ -34,5 +36,7 @@ export interface BaseAction {
 
 const initialState: TimerState = {
   isRunning: false,
-  count: 0
+  count: 0,
+  averageSalary: 0,
+  participants: 0
 };

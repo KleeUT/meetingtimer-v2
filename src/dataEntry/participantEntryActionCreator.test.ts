@@ -1,19 +1,19 @@
-import { useActionCreator } from "./salaryEntryActionCreator";
-import { AVERAGE_SALARY_UPDATED, AverageSalaryUpdatedAction } from "./actions";
+import { useActionCreator } from "./participantEntryActionCreator";
+import { PARTICIPANTS_UPDATED, ParticipantsUpdatedAction } from "./actions";
 import { TimerState, BaseAction, useGlobalState } from "../GlobalState";
 jest.mock("../GlobalState", () => ({
   useGlobalState: jest.fn()
 }));
 
 describe("Salary action creator", () => {
-  it("should send change salary action", () => {
+  it("should send change participants action", () => {
     const dispatch = jest.fn();
     givenDispatchAndState(undefined, dispatch);
     const actionCreator = useActionCreator();
-    actionCreator.updateSalary("12345");
-    const expectedAction: AverageSalaryUpdatedAction = {
-      type: AVERAGE_SALARY_UPDATED,
-      averageSalary: 12345
+    actionCreator.updateParticipants("5");
+    const expectedAction: ParticipantsUpdatedAction = {
+      type: PARTICIPANTS_UPDATED,
+      participants: 5
     };
     expect(dispatch).toHaveBeenCalledWith(expectedAction);
   });

@@ -1,9 +1,15 @@
 import React from "react";
 import { Number } from "../components";
-export const ParticipantEntry = () => (
-  <Number
-    label="How many people are in your meeting?"
-    value={16}
-    onChange={e => {}}
-  />
-);
+import { useGlobalState } from "../GlobalState";
+import { useActionCreator } from "./participantEntryActionCreator";
+export const ParticipantEntry = () => {
+  const { state } = useGlobalState();
+  const actionCreator = useActionCreator();
+  return (
+    <Number
+      label="How many people are in your meeting?"
+      value={state.participants}
+      onChange={e => actionCreator.updateParticipants(e.target.value)}
+    />
+  );
+};

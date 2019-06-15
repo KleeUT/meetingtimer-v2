@@ -1,10 +1,10 @@
 import { BaseAction } from "../GlobalState";
-export const UPDATE_PARTICIPANTS = "UPDATE_PARTICIPANTS";
-export const UPDATE_AVERAGE_SALARY = "UPDATE_AVERAGE_SALARY";
+export const PARTICIPANTS_UPDATED = "UPDATE_PARTICIPANTS";
+export const AVERAGE_SALARY_UPDATED = "UPDATE_AVERAGE_SALARY";
 
-export interface UpdateParticipantsAction extends BaseAction {
+export interface ParticipantsUpdatedAction extends BaseAction {
   participants: number;
 }
-export interface UpdateAverageSalaryAction extends BaseAction {
+export interface AverageSalaryUpdatedAction extends BaseAction {
   averageSalary: number;
 }

@@ -1,3 +1,4 @@
 import { ParticipantEntry } from "./ParticipantsEntry";
 import { SalaryEntry } from "./SalaryEntry";
-export { SalaryEntry, ParticipantEntry };
+import * as dataEntryActions from "./actions";
+export { SalaryEntry, ParticipantEntry, dataEntryActions };
