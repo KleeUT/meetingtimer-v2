@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { GlobalStateProvider, TimerState, BaseAction } from "./GlobalState";
 import { reducer } from "./globalStateReducer";
 import { useTimeKeeper, useTimerActions } from "./timeKeeper";
 import { Headings } from "./components";
 import { TimerControls } from "./controls";
-import { useGlobalState } from "./GlobalState";
 import { ParticipantEntry, SalaryEntry } from "./dataEntry";
+import { MeetingStatsDisplay } from "./MeetingStats";
+import { MeetingCostDisplay } from "./MeetingCost";
 function App() {
   return (
     <GlobalStateProvider reducer={reducer}>
       <TimeKeeper />
-      <Display />
+      <Headings.Heading1>How much is your meeting costing?</Headings.Heading1>
       <ParticipantEntry />
       <SalaryEntry />
       <TimerControls />
+      <MeetingCostDisplay />
+      <MeetingStatsDisplay />
     </GlobalStateProvider>
   );
 }
@@ -24,15 +27,6 @@ const TimeKeeper = () => {
     interval: 1000
   });
   return null;
-};
-const Display = () => {
-  const { state } = useGlobalState();
-  return (
-    <section>
-      <Headings.Heading1>How much is your meeting costing?</Headings.Heading1>
-      <p>{state.count}</p>
-    </section>
-  );
 };
 
 export default App;
