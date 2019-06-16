@@ -1,4 +1,12 @@
 * {
   font-family: "Roboto Mono", monospace;
   font-size: 18pt;
+  margin: 0;
+  padding: 0;
+  color: #fef;
+}
+body {
+  height: 100vh;
+  widows: 100vw;
+  background: linear-gradient(135deg, #222, #000);
 }

@@ -1,13 +1,14 @@
 import React from "react";
-import { Button } from "../components";
+import { buttons } from "../components";
 import { useActionCreator } from "./controlsActionCreator";
 export default () => {
   const { startTimer, stopTimer, resetTimer } = useActionCreator();
+  const { PrimaryButton, WarningButton, SecondaryButton } = buttons;
   return (
     <div>
-      <Button onClick={stopTimer}>Stop</Button>
-      <Button onClick={startTimer}>Start</Button>
-      <Button onClick={resetTimer}>Reset</Button>
+      <SecondaryButton onClick={stopTimer}>Stop</SecondaryButton>
+      <PrimaryButton onClick={startTimer}>Start</PrimaryButton>
+      <WarningButton onClick={resetTimer}>Reset</WarningButton>
     </div>
   );
 };

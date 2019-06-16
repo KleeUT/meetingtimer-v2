@@ -9,7 +9,10 @@ const Input = styled.input`
   border-radius: 0.1rem;
   border-top: 0;
   border-bottom: 0;
+  text-align: center;
+  width: 100%;
 `;
+
 export const Number = ({
   value,
   onChange,
