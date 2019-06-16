@@ -32,7 +32,7 @@ const ResetButton = ({
   action: () => void;
   isRunning: boolean;
 }) =>
-  isRunning ? <WarningButton onClick={action}>Reset</WarningButton> : null;
+  isRunning ? null : <WarningButton onClick={action}>Reset</WarningButton>;
 
 const StartButton = ({
   isRunning,

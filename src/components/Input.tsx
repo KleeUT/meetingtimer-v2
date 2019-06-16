@@ -11,6 +11,7 @@ const Input = styled.input`
   border-bottom: 0;
   text-align: center;
   width: 100%;
+  background: #101;
 `;
 
 export const Number = ({
