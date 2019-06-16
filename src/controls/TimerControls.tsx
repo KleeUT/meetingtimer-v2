@@ -23,7 +23,7 @@ const StopButton = ({
   action: () => void;
   isRunning: boolean;
 }) =>
-  isRunning ? <SecondaryButton onClick={action}>Stop</SecondaryButton> : null;
+  isRunning ? <SecondaryButton onClick={action}>Pause</SecondaryButton> : null;
 
 const ResetButton = ({
   isRunning,
@@ -32,7 +32,7 @@ const ResetButton = ({
   action: () => void;
   isRunning: boolean;
 }) =>
-  isRunning ? null : <WarningButton onClick={action}>Reset</WarningButton>;
+  isRunning ? null : <WarningButton onClick={action}>Reset Time</WarningButton>;
 
 const StartButton = ({
   isRunning,

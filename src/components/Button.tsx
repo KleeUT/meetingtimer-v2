@@ -2,11 +2,11 @@ import styled from "styled-components";
 const Button = styled.button`
   /* border: 2px solid black; */
   border-style: none;
-  margin: 0.1rem;
-  background: white;
+  margin: 0.2rem;
   border-radius: 0.1rem;
   box-shadow: 0.1rem 0.1rem #aaa;
   width: 100%;
+  padding: 0.3rem;
 `;
 
 export const PrimaryButton = styled(Button)`
