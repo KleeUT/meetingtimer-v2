@@ -7,6 +7,7 @@ import { TimerControls } from "./controls";
 import { ParticipantEntry, SalaryEntry } from "./dataEntry";
 import { MeetingStatsDisplay } from "./MeetingStats";
 import { MeetingCostDisplay } from "./MeetingCost";
+import { Footer } from "./footer";
 function App() {
   return (
     <BoundingContainer>
@@ -18,6 +19,7 @@ function App() {
         <TimerControls />
         <MeetingCostDisplay />
         <MeetingStatsDisplay />
+        <Footer />
       </GlobalStateProvider>
     </BoundingContainer>
   );
