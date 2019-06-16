@@ -11,7 +11,7 @@ const Input = styled.input`
   border-bottom: 0;
   text-align: center;
   width: 100%;
-  background: #101;
+  background: linear-gradient(135deg, #212, #101);
 `;
 
 export const Number = ({

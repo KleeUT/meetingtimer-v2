@@ -22,7 +22,14 @@ export const MeetingCostDisplay = () => {
           ).perSecond()
         ).toFixed(2)}
       </CostDislay>
-      <TimeDisplay>{state.count} Seconds</TimeDisplay>
+      <TimeDisplay>Meeting time: {formatAsTime(state.count)}</TimeDisplay>
     </div>
   );
+};
+const formatAsTime = (totalSeconds: number): string => {
+  const hours = Math.floor(totalSeconds / 3600);
+  const secondWithoutHourss = totalSeconds % 3600;
+  const minutes = Math.floor(secondWithoutHourss / 60);
+  const seconds = totalSeconds % 60;
+  return `${hours}:${minutes}:${seconds}`;
 };
