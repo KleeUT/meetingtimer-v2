@@ -1,12 +1,12 @@
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
-import { ParticipantEntry } from "./ParticipantsEntry";
+import { SalaryEntry } from "./SalaryEntry";
 import { useGlobalState } from "../GlobalState";
-import { useActionCreator } from "./participantEntryActionCreator";
+import { useActionCreator } from "./salaryEntryActionCreator";
 jest.mock("../GlobalState");
-jest.mock("./participantEntryActionCreator");
+jest.mock("./salaryEntryActionCreator");
 
-describe("Participant Entry", () => {
+describe("salary Entry", () => {
   afterEach(() => {
     cleanup();
   });
@@ -14,19 +14,19 @@ describe("Participant Entry", () => {
     (useGlobalState as jest.Mock).mockReturnValue({
       state: {}
     });
-    const { getByTestId } = render(<ParticipantEntry />);
-    const node = getByTestId("participant-entry-input");
+    const { getByTestId } = render(<SalaryEntry />);
+    const node = getByTestId("salary-entry-input");
     expect(node).toBeDefined();
   });
 
   it("Should render the state value on render", () => {
     (useGlobalState as jest.Mock).mockReturnValue({
       state: {
-        participants: 153
+        averageSalary: 153
       }
     });
-    const { getByTestId } = render(<ParticipantEntry />);
-    const node = getByTestId("participant-entry-input") as HTMLInputElement;
+    const { getByTestId } = render(<SalaryEntry />);
+    const node = getByTestId("salary-entry-input") as HTMLInputElement;
     expect(node.value).toEqual("153");
   });
 
@@ -35,11 +35,11 @@ describe("Participant Entry", () => {
       state: {}
     });
     (useActionCreator as jest.Mock).mockReturnValue({
-      updateParticipants: jest.fn()
+      updateSalary: jest.fn()
     });
-    const { getByTestId } = render(<ParticipantEntry />);
-    const node = getByTestId("participant-entry-input") as HTMLInputElement;
+    const { getByTestId } = render(<SalaryEntry />);
+    const node = getByTestId("salary-entry-input") as HTMLInputElement;
     fireEvent.input(node, { target: { value: "15" } });
-    expect(useActionCreator().updateParticipants).toHaveBeenCalledWith("15");
+    expect(useActionCreator().updateSalary).toHaveBeenCalledWith("15");
   });
 });

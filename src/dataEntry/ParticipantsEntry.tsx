@@ -7,7 +7,7 @@ export const ParticipantEntry = () => {
   const actionCreator = useActionCreator();
   return (
     <Number
-      data-testid="participant-entry-inupt"
+      data-testid="participant-entry-input"
       label="How many people are in your meeting?"
       value={state.participants}
       onChange={e => actionCreator.updateParticipants(e.target.value)}
