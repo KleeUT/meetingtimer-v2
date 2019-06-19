@@ -10,19 +10,16 @@ const Button = styled.button`
 `;
 
 export const PrimaryButton = styled(Button)`
-  color: #030;
-  /* border-color: #030; */
+  color: #010;
   background: linear-gradient(135deg, #fff, #dfd);
 `;
 
 export const SecondaryButton = styled(Button)`
   color: #222;
-  border-color: #222;
   background: linear-gradient(135deg, #fff, #ddd);
 `;
 
 export const WarningButton = styled(Button)`
-  color: #a22;
-  border-color: #a22;
+  color: #100;
   background: linear-gradient(135deg, #fff, #fdd);
 `;
